@@ -1,0 +1,652 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOHqdIWoYOdx4KZ/0F9oTep",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nizam1410/Assign1/blob/main/assignment%203\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 1. Why are functions advantageous to have in your programs?"
+      ],
+      "metadata": {
+        "id": "6tapgRKmAlTY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Functions are advantageous to in the programs because of the following reasons:\n",
+        "\n",
+        ". Reusability: Avoid rewriting code by calling functions multiple    \n",
+        "  times.    \n",
+        "\n",
+        ". Modularity: Break complex tasks into smaller, manageable modules.\n",
+        "\n",
+        ". Readability: Descriptive function names make the code more\n",
+        "  understandable.\n",
+        "\n",
+        ". Abstraction: Hide implementation details from the caller.\n",
+        "\n",
+        ". Testing: Functions can be tested independently, which helps in debugging.\n",
+        "\n",
+        ". Easy to maintain: Changes are centralized, reducing bugs and improving\n",
+        "  code.\n",
+        "\n",
+        ". Collaboration: Facilitate parallel development with different team members.\n",
+        "\n",
+        ". Organization: Functions improve code structure and navigation."
+      ],
+      "metadata": {
+        "id": "vURX-TYhBVP0"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 2. When does the code in a function run: when it's specified or when it's called?"
+      ],
+      "metadata": {
+        "id": "6J48Ep-NWvHE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The code inside a function runs when the function is called, not when it is specified. Defining a function only creates a blueprint for what the function should do when it is invoked, but it does not execute the code inside the function at that moment but when we call a function, the program jumps to the function's definition and starts executing the code inside it."
+      ],
+      "metadata": {
+        "id": "N9DjGMaNER3K"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 3. What statement creates a function?"
+      ],
+      "metadata": {
+        "id": "XUs6ApJNElCx"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The \"def\" statement is used to create a function. It is followed by the function name, a pair of parentheses (), and a colon :\n",
+        "\n",
+        "Ex: def add_num(x,y):\n"
+      ],
+      "metadata": {
+        "id": "0RwzHNbJErCe"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 4. What is the difference between a function and a function call?"
+      ],
+      "metadata": {
+        "id": "nJZrgCQKFSQ3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Function: A block of code defined using def that performs a specific task. It can take inputs and optionally return a value.\n",
+        "\n",
+        "Function Call: The execution of a function's code using the function's name with parentheses and, if necessary, passing arguments to it.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "t8Gfqi6wFoNS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 5. How many global scopes are there in a Python program? How many local scopes?"
+      ],
+      "metadata": {
+        "id": "O9XxjugSFxDk"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "In a Python program:\n",
+        "\n",
+        "Global Scopes: There is only one global scope. It is the top-level scope that exists throughout the entire program and includes all the variables defined at the outermost level of the script or module. Variables defined in the global scope can be accessed from anywhere within the program.\n",
+        "\n",
+        "Local Scopes: The number of local scopes depends on the number of function or method calls made during the program's execution. Each time a function or method is called, a new local scope is created for that specific call. Local scopes are temporary and are cleaned up once the function or method execution is completed. Variables defined within a function or method are limited to their respective local scopes and cannot be accessed from outside unless returned explicitly."
+      ],
+      "metadata": {
+        "id": "ynF2yA32GlhU"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 6. What happens to variables in a local scope when the function call returns?"
+      ],
+      "metadata": {
+        "id": "BirfjpSbGn0e"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "When the execution of the function terminates (returns), the local variables are destroyed."
+      ],
+      "metadata": {
+        "id": "TKKtGEteQY9G"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def add_num():\n",
+        "    x = 10\n",
+        "    y = 20\n",
+        "    result = x + y\n",
+        "    return result\n",
+        "\n",
+        "output = add_num()\n",
+        "print(output)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MpJWDQxgCsDz",
+        "outputId": "2f9de541-f9e8-4a0d-ffe9-d8f832945612"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 176
+        },
+        "id": "t3CkWb7EAxEp",
+        "outputId": "118eeb8d-fc10-40e7-e1d2-ee0a354f06a8"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-4-fc17d851ef81>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'x' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "when the add_num() function is called, it creates variables x, y, and result within its local scope. After the function call returns and the local scope is destroyed, these variables are no longer accessible, and trying to access them outside the function results in a NameError.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "4QXACUhoROkv"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 7. What is the concept of a return value? Is it possible to have a return value in an expression?"
+      ],
+      "metadata": {
+        "id": "zBq6zmyTRZHp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A return value in python is the value a function sends back to the caller after completing its execution. It is specified using the return statement, and yes it can be used in expressions, assigned to variables, or passed as arguments to other functions.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "bWI-3rfZ0c_I"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 8. If a function does not have a return statement, what is the return value of a call to that function?"
+      ],
+      "metadata": {
+        "id": "LI_w_Nek0fpR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def age(age):\n",
+        "  print(f\"you are {age} years old\")\n",
+        "\n",
+        "aged = age(25)\n",
+        "print(aged)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "V3VWPHkT1Rqx",
+        "outputId": "5ad19be3-7b11-4411-81c6-92256b316f51"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "you are 25 years old\n",
+            "None\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "It shows None , If a function does not have a return statement, the return value of a call to that function will be None. When a function does not explicitly specify a return value, it automatically returns None by default."
+      ],
+      "metadata": {
+        "id": "2c5sxKrw07ri"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# How do you make a function variable refer to the global variable?"
+      ],
+      "metadata": {
+        "id": "__PmInSi1ker"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 10\n",
+        "\n",
+        "def my_function():\n",
+        "    global x\n",
+        "    x = 20\n",
+        "\n",
+        "my_function()\n",
+        "print(x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8ew5rr9RRWsa",
+        "outputId": "8aca53f5-f7f2-41b3-e622-31e6fb649bdb"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "20\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "In this code, x is defined as a global variable outside of the function my_function(). Within my_function(), x is modified using the global keyword, which tells the function to use the global variable instead of creating a new local variable. After my_function() is called, x is printed to the console and its modified value of 20 is displayed."
+      ],
+      "metadata": {
+        "id": "dVWVl1oz2EMW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "number = 100\n",
+        "\n",
+        "def test():\n",
+        "    global number\n",
+        "    number = 200\n",
+        "\n",
+        "print(\"Before function call:\", number)\n",
+        "test()\n",
+        "print(\"After function call:\", number)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bj5G6UGTRWk8",
+        "outputId": "deb3a5f8-f69e-4fef-b296-1060f9863796"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Before function call: 100\n",
+            "After function call: 100\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 10. What is the data type of None?"
+      ],
+      "metadata": {
+        "id": "x68SNXaq3MIj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type(None))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "abH3-9Y0RWZi",
+        "outputId": "9e76dd66-e457-4daa-acf0-301204c870d3"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'NoneType'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The data type of None in Python is NoneType. It is a special built-in type that represents the absence of a value or a null value."
+      ],
+      "metadata": {
+        "id": "Oy2ZGjx83b4b"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 11. What does the sentence import areallyourpetsnamederic do?"
+      ],
+      "metadata": {
+        "id": "yhzvB8Mg3iqh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import areallyourpetsnamederic"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 315
+        },
+        "id": "HVA_HV_B3z8K",
+        "outputId": "5658ec18-d7dd-40bb-f4f7-3f743313329c"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ModuleNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-7-b1ea9cb2228f>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mareallyourpetsnamederic\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'areallyourpetsnamederic'",
+            "",
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0;32m\nNOTE: If your import is failing due to a missing package, you can\nmanually install dependencies using either !pip or !apt.\n\nTo view examples of installing some common dependencies, click the\n\"Open Examples\" button below.\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n"
+          ],
+          "errorDetails": {
+            "actions": [
+              {
+                "action": "open_url",
+                "actionText": "Open Examples",
+                "url": "/notebooks/snippets/importing_libraries.ipynb"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 12. If you had a bacon() feature in a spam module, what would you call it after importing spam?"
+      ],
+      "metadata": {
+        "id": "wUBM_H1E3rxs"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import spam\n",
+        "\n",
+        "spam.bacon()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 349
+        },
+        "id": "zXCQqGVU3rRF",
+        "outputId": "9e3b977f-51bc-4efa-e671-a30868029fd7"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ModuleNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-9-2cab28171a8a>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mspam\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mspam\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mbacon\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'spam'",
+            "",
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0;32m\nNOTE: If your import is failing due to a missing package, you can\nmanually install dependencies using either !pip or !apt.\n\nTo view examples of installing some common dependencies, click the\n\"Open Examples\" button below.\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n"
+          ],
+          "errorDetails": {
+            "actions": [
+              {
+                "action": "open_url",
+                "actionText": "Open Examples",
+                "url": "/notebooks/snippets/importing_libraries.ipynb"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "# 13. What can you do to save a programme from crashing if it encounters an error?"
+      ],
+      "metadata": {
+        "id": "50YXuks340S4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "To prevent a program from crashing when it encounters an error, we can use error handling techniques. To handle exceptions, we can use a try block to enclose the code that might raise an error, and one or more except blocks to define how to handle specific types of exceptions. If an exception occurs within the try block, the corresponding except block is executed, and the program continues running after the error has been handled."
+      ],
+      "metadata": {
+        "id": "6iARtbc_479h"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def divide(a, b):\n",
+        "    try:\n",
+        "        result = a / b\n",
+        "        return result\n",
+        "    except ZeroDivisionError:\n",
+        "        print(\"Error: Division by zero is not allowed.\")\n",
+        "        return None"
+      ],
+      "metadata": {
+        "id": "GUCDsZB13rNZ"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "divide(500,0)\n",
+        "round(divide(500,3), 3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pthCqvLR3rLL",
+        "outputId": "cccc11d0-b4a7-4bf0-f6c7-7e0f59a704d4"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Error: Division by zero is not allowed.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "166.667"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Raising custom exceptions:"
+      ],
+      "metadata": {
+        "id": "04L3LIkXRxVA"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_square_root(n):\n",
+        "    if n < 0:\n",
+        "        raise ValueError(\"Cannot calculate square root of a negative number\")\n",
+        "    # Calculate and return square root\n",
+        "\n",
+        "try:\n",
+        "    result = calculate_square_root(-4)\n",
+        "except ValueError as e:\n",
+        "    print(str(e))  # Output: Cannot calculate square root of a negative number"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zw6e-JUSRws1",
+        "outputId": "08604428-c3ef-47c9-805d-f20959653478"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cannot calculate square root of a negative number\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 14. What is the purpose of the try clause? What is the purpose of the except clause?"
+      ],
+      "metadata": {
+        "id": "ezwUEBzX6nQY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Purpose of the try clause:\n",
+        "The try clause is used to enclose a block of code that may raise an exception. It defines the section of code where you anticipate potential errors or exceptions to occur. The primary purpose of the try clause is to monitor the code within it and detect any exceptions that are raised during its execution.\n",
+        "\n",
+        "Purpose of the except clause:\n",
+        "The except clause is used to handle exceptions that occur within the corresponding try block. When an exception is raised inside the try block, the program flow is immediately transferred to the except block that matches the type of the raised exception. The except block specifies the actions or code to execute in response to the raised exception.\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "DuSqnxPjUU8v"
+      }
+    }
+  ]
+}
